@@ -1,5 +1,10 @@
 package fr.orsysopen.com.leprojet.service.ServiceImpl;
 
-public class UtilisateurServiceImpl {
+import org.springframework.stereotype.Service;
+
+import fr.orsysopen.com.leprojet.service.UtilisateurService;
+
+@Service
+public class UtilisateurServiceImpl implements UtilisateurService {
 
 }
