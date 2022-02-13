@@ -1,9 +1,12 @@
 package fr.orsysopen.com.leprojet.business;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Genre {
@@ -12,6 +15,9 @@ public class Genre {
 	private Long id;
 	private String nom;
 	
+	// Un genre peut etre attribué à plusieurs jeux
+	@OneToMany(mappedBy = "genre")
+	private List<Jeu> jeux;
 	
 	public Genre() {
 		

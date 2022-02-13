@@ -1,11 +1,17 @@
 package fr.orsysopen.com.leprojet.business;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.validation.constraints.NotBlank;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -14,11 +20,38 @@ public class Jeu {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
+	
+	@NotBlank(message="Merci de donner un nom à ce jeu")
 	private String nom;
+	
+	@Lob
 	private String description;
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dateSortie;
 	private String image;
+	
+	// Un jeu est edité par un seul Editeur
+	@ManyToOne
+	private Editeur editeur;
+	// Un jeu a un seul genre
+	@ManyToOne
+	private Genre genre;
+	//Un jeu a une seule classification
+	@ManyToOne
+	Classification classification;
+	
+	//Un jeu peut etre sur plusieurs plateformes
+	@ManyToMany(mappedBy = "jeux")
+    private List<Plateforme> platformes;
+	
+	// Un jeu se refere à un seul modeleEconomique
+	@ManyToOne
+	private ModeleEconomique modelEco;
+	
+	// Un jeu possede pluseurs avis
+	@OneToMany(mappedBy = "jeu")
+	private List<Avis> avis;
+	
 	
 	
 	public Jeu() {

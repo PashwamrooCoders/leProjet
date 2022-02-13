@@ -1,8 +1,11 @@
 package fr.orsysopen.com.leprojet.business;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.Past;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -13,6 +16,10 @@ public class Joueur extends Utilisateur {
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Past(message="La date de naissance doit être dans le passé")
 	private LocalDate dateDeNaissance;
+	
+	//Un joueur peut etre associé à plusieurs avis
+	@OneToMany(mappedBy = "joueur", fetch = FetchType.EAGER)
+	private List<Avis> avis;
 
 	public Joueur() {
 		super();
