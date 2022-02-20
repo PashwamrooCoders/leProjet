@@ -12,7 +12,7 @@ import javax.persistence.OneToOne;
 import javax.validation.constraints.Positive;
 
 @Entity
-public class Avis {
+public class Review {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -38,7 +38,7 @@ public class Avis {
 	private Jeu jeu;
 	
 	
-	public Avis() {}
+	public Review() {}
 	
 	
 	public Long getId() {

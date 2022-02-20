@@ -1,8 +1,8 @@
 package fr.orsysopen.com.leprojet.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import fr.orsysopen.com.leprojet.business.Editeur;
+import fr.orsysopen.com.leprojet.business.Editor;
 
-public interface EditeurDao extends JpaRepository<Editeur, Long> {
+public interface EditeurDao extends JpaRepository<Editor, Long> {
 
 }

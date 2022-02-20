@@ -19,7 +19,7 @@ public class Joueur extends Utilisateur {
 	
 	//Un joueur peut etre associé à plusieurs avis
 	@OneToMany(mappedBy = "joueur", fetch = FetchType.EAGER)
-	private List<Avis> avis;
+	private List<Review> avis;
 
 	public Joueur() {
 		super();

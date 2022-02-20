@@ -32,7 +32,7 @@ public class Jeu {
 	
 	// Un jeu est edité par un seul Editeur
 	@ManyToOne
-	private Editeur editeur;
+	private Editor editeur;
 	// Un jeu a un seul genre
 	@ManyToOne
 	private Genre genre;
@@ -50,11 +50,10 @@ public class Jeu {
 	
 	// Un jeu possede pluseurs avis
 	@OneToMany(mappedBy = "jeu")
-	private List<Avis> avis;
-	
-	
-	
-	public Jeu() {
+	private List<Review> avis;
+	@ManyToOne
+	private Moderateur moderateur;
+	Jeu() {
 	}
 
 	public Jeu(String nom, String description, LocalDate dateSortie, String image) {

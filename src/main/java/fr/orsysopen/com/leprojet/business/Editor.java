@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Editeur {
+public class Editor {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
@@ -20,7 +20,7 @@ public class Editeur {
 	@OneToMany(mappedBy = "editeur")
 	private List<Jeu> jeux = new ArrayList<>();
 	
-	public Editeur() {}
+	public Editor() {}
 
 	public Long getId() {
 		return id;
